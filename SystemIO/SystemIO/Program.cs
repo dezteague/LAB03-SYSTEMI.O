@@ -48,6 +48,7 @@ namespace SystemIO
         {
             try
             {
+                //send the lines to be read in the text file based on the path
                 string[] lines = File.ReadAllLines(path);
                 for (int i = 0; i < lines.Length; i++)
                 {
