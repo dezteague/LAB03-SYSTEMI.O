@@ -12,6 +12,7 @@ namespace SystemIO
             string path = "../../../wordFile.txt";
             CreateFile(path);
             ReadFile(path);
+            AppendFile(path);
         }
 
         static void CreateFile(string path)
@@ -60,6 +61,22 @@ namespace SystemIO
                 //    {
                 //        Console.WriteLine(line);
                 //    }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        static void AppendFile(string path)
+        {
+            try
+            {
+                using (StreamWriter streamWriter = File.AppendText(path))
+                {
+                    streamWriter.WriteLine("this is a new line to be added");
+                }
             }
             catch (Exception)
             {
