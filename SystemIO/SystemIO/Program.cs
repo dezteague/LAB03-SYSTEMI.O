@@ -11,6 +11,7 @@ namespace SystemIO
             Console.WriteLine("Welcome to Deziree's Guessing Game!");
             string path = "../../../wordFile.txt";
             CreateFile(path);
+            ReadFile(path);
         }
 
         //main menu
@@ -81,17 +82,11 @@ namespace SystemIO
             try
             {
                 //send the lines to be read in the text file based on the path
-                string[] lines = File.ReadAllLines(path);
-                for (int i = 0; i < lines.Length; i++)
+                string[] gameWords = File.ReadAllLines(path);
+                for (int i = 0; i < gameWords.Length; i++)
                 {
-                    Console.WriteLine(lines[i]);
+                    Console.WriteLine(gameWords[i]);
                 }
-
-                //use for each only if youre going through every element in the array
-                //    foreach (string line in lines)
-                //    {
-                //        Console.WriteLine(line);
-                //    }
             }
             catch (Exception)
             {
