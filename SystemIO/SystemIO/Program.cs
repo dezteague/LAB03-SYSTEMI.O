@@ -10,19 +10,49 @@ namespace SystemIO
         {
             Console.WriteLine("Welcome to Deziree's Guessing Game!");
             string path = "../../../wordFile.txt";
-            CreateFile(path);
-            ReadFile(path);
+            Menu();
         }
 
         //main menu
-        public static string Menu()
+        public static int Menu()
         {
             Console.WriteLine("1. New Game");
             Console.WriteLine("2. Word Options");
-            Console.WriteLine("2. Exit Game");
-            string menuSelction = Console.ReadLine();
-            return menuSelction;
+            Console.WriteLine("3. Exit Game");
+            string selection = Console.ReadLine();
+            int menuSelection = Convert.ToInt32(selection);
+            return menuSelection;
         }
+
+        public static int MainMenuOption(int userInput, string path)
+        {
+            try
+            {
+                switch(value)
+                {
+                    case 1:
+                        CreateFile(path);
+                    break;
+                    case 2:
+                        WordOptions();
+                    break;
+                    case 3:
+                        Console.WriteLine("Thanks for playing");
+                    break;
+                    default:
+                        Console.WriteLine("Sorry you entered an invalid value");
+                        Menu();
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+        }
+
         //from main menu, select 2 to navigate to word options: view, add, delete
         public static string WordOptions()
         {
