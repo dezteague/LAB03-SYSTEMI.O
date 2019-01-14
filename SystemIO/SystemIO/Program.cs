@@ -10,7 +10,7 @@ namespace SystemIO
         {
             Console.WriteLine("Welcome to Deziree's Guessing Game!");
             string path = "../../../wordFile.txt";
-            Menu();
+            CreateFile(path);
         }
 
         //main menu
@@ -32,14 +32,14 @@ namespace SystemIO
             return wordOptionSelection;
         }
 
-        public void UserInterface()
-        {
-            switch(value)
-            {
+        //public void UserInterface()
+        //{
+        //    switch(value)
+        //    {
 
-            }
+        //    }
             
-        }
+        //}
 
         
       
@@ -51,9 +51,12 @@ namespace SystemIO
                 //using makes sure you are closing the file
                 using (StreamWriter streamWriter = new StreamWriter(path))
                 {
-                    //when you leave this block, the engine will dispose streamWriter
-                    Console.WriteLine("List of random words");
-                    streamWriter.WriteLine("List of random words");
+                    //when you leave this block, the engine will dispose streamWriter                    
+                    streamWriter.WriteLine("sloth");
+                    streamWriter.WriteLine("turtle");
+                    streamWriter.WriteLine("wolf");
+                    streamWriter.WriteLine("dolphin");
+                    streamWriter.WriteLine("tiger");
                 }
             }
             catch (IOException e)
@@ -126,47 +129,6 @@ namespace SystemIO
             }
         }
 
-        static void CreateWordBank (string path)
-        {
-            try
-            {
-                //if there is an exisiting file
-                if (!File.Exists(path))
-                {
-
-                    using (StreamWriter streamwriter = File.CreateText(path))
-                    {
-                        try
-                        {
-                            streamwriter.WriteLine("sloth");
-                            streamwriter.WriteLine("turtle");
-                            streamwriter.WriteLine("pig");
-                            streamwriter.WriteLine("dolphin");
-                            streamwriter.WriteLine("tiger");
-                        }
-                        catch
-                        {
-                            throw;
-                        }
-                        finally
-                        {
-                            streamwriter.Close();
-                        }
-                    }
-
-                }
-                else
-                {
-                    File.Delete(path);
-                    CreateWordBank(path);
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
     }     
 }
 
