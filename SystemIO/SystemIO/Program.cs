@@ -10,9 +10,8 @@ namespace SystemIO
         {
             Console.WriteLine("Welcome to Deziree's Guessing Game!");
             string path = "../../../wordFile.txt";
-            //Menu();
+            Menu();
             CreateFile(path);
-
             string rdm = GenerateRandomWord(path);
             Console.WriteLine(GenerateUnderscores(rdm));
 
