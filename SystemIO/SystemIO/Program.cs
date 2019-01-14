@@ -12,7 +12,10 @@ namespace SystemIO
             string path = "../../../wordFile.txt";
             //Menu();
             CreateFile(path);
-            Console.WriteLine(GenerateRandomWord(path));
+
+            string rdm = GenerateRandomWord(path);
+            Console.WriteLine(GenerateUnderscores(rdm));
+
         }
 
         //main menu
@@ -151,6 +154,25 @@ namespace SystemIO
             string[] randWords = File.ReadAllLines(path);
             string randomWord = randWords[random.Next(0, randWords.Length)];
             return randomWord;
+        }
+
+        static string GenerateUnderscores(string randomWord)
+        {
+            try
+            {
+                char[] wordsChoppedtoChars = randomWord.ToCharArray();
+                string[] arrayofUnderscores = new string[wordsChoppedtoChars.Length];
+                for (int i = 0; i < wordsChoppedtoChars.Length; i++)
+                {
+                    arrayofUnderscores[i] = "_";
+                }
+                return string.Join(" ", arrayofUnderscores);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
     }     
