@@ -13,6 +13,7 @@ namespace SystemIO
             Menu();
         }
 
+        //main menu
         public static string Menu()
         {
             Console.WriteLine("1. New Game");
@@ -21,7 +22,7 @@ namespace SystemIO
             string menuSelction = Console.ReadLine();
             return menuSelction;
         }
-
+        //from main menu, select 2 to navigate to word options: view, add, delete
         public static string WordOptions()
         {
             Console.WriteLine("1. View Words");
