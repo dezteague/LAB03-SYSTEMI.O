@@ -13,6 +13,7 @@ namespace SystemIO
             CreateFile(path);
             ReadFile(path);
             AppendFile(path);
+            DeleteFile(path);
         }
 
         static void CreateFile(string path)
@@ -77,6 +78,19 @@ namespace SystemIO
                 {
                     streamWriter.WriteLine("this is a new line to be added");
                 }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        static void DeleteFile(string path)
+        {
+            try
+            {
+                File.Delete(path);
             }
             catch (Exception)
             {
