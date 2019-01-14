@@ -10,7 +10,9 @@ namespace SystemIO
         {
             Console.WriteLine("Welcome to Deziree's Guessing Game!");
             string path = "../../../wordFile.txt";
-            Menu();
+            //Menu();
+            CreateFile(path);
+            Console.WriteLine(GenerateRandomWord(path));
         }
 
         //main menu
@@ -24,34 +26,34 @@ namespace SystemIO
             return menuSelection;
         }
 
-        public static int MainMenuOption(int userInput, string path)
-        {
-            try
-            {
-                switch(value)
-                {
-                    case 1:
-                        CreateFile(path);
-                    break;
-                    case 2:
-                        WordOptions();
-                    break;
-                    case 3:
-                        Console.WriteLine("Thanks for playing");
-                    break;
-                    default:
-                        Console.WriteLine("Sorry you entered an invalid value");
-                        Menu();
-                        break;
-                }
-            }
-            catch (Exception)
-            {
+        //public static int MainMenuOption(int userInput, string path)
+        //{
+        //    try
+        //    {
+        //        switch(value)
+        //        {
+        //            case 1:
+        //                CreateFile(path);
+        //            break;
+        //            case 2:
+        //                WordOptions();
+        //            break;
+        //            case 3:
+        //                Console.WriteLine("Thanks for playing");
+        //            break;
+        //            default:
+        //                Console.WriteLine("Sorry you entered an invalid value");
+        //                Menu();
+        //                break;
+        //        }
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
+        //        throw;
+        //    }
             
-        }
+        //}
 
         //from main menu, select 2 to navigate to word options: view, add, delete
         public static string WordOptions()
@@ -63,17 +65,6 @@ namespace SystemIO
             return wordOptionSelection;
         }
 
-        //public void UserInterface()
-        //{
-        //    switch(value)
-        //    {
-
-        //    }
-            
-        //}
-
-        
-      
         static void CreateFile(string path)
         {
             //using statement (FINALLY)
@@ -152,6 +143,14 @@ namespace SystemIO
 
                 throw;
             }
+        }
+
+        static string GenerateRandomWord(string path)
+        {
+            Random random = new Random();
+            string[] randWords = File.ReadAllLines(path);
+            string randomWord = randWords[random.Next(0, randWords.Length)];
+            return randomWord;
         }
 
     }     
